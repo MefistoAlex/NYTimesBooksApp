@@ -15,6 +15,7 @@
 		B0D0BA27298EC2F100B20EA6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0D0BA25298EC2F100B20EA6 /* LaunchScreen.storyboard */; };
 		B0D0BA2F298EC5E200B20EA6 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D0BA2E298EC5E200B20EA6 /* CoreDataStack.swift */; };
 		B0D0BA31298EC83600B20EA6 /* APIManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D0BA30298EC83600B20EA6 /* APIManagerProtocol.swift */; };
+		B0D0BA34298EC96000B20EA6 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B0D0BA33298EC96000B20EA6 /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0D0BA34298EC96000B20EA6 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +91,9 @@
 			dependencies = (
 			);
 			name = NYTimesBooks;
+			packageProductDependencies = (
+				B0D0BA33298EC96000B20EA6 /* Alamofire */,
+			);
 			productName = NYTimesBooks;
 			productReference = B0D0BA14298EC2EF00B20EA6 /* NYTimesBooks.app */;
 			productType = "com.apple.product-type.application";
@@ -117,6 +122,9 @@
 				Base,
 			);
 			mainGroup = B0D0BA0B298EC2EF00B20EA6;
+			packageReferences = (
+				B0D0BA32298EC96000B20EA6 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = B0D0BA15298EC2EF00B20EA6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -358,6 +366,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B0D0BA32298EC96000B20EA6 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B0D0BA33298EC96000B20EA6 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B0D0BA32298EC96000B20EA6 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		B0D0BA20298EC2EF00B20EA6 /* NYTimesBooks.xcdatamodeld */ = {
