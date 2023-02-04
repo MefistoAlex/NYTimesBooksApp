@@ -13,6 +13,7 @@
 		B0D0BA22298EC2EF00B20EA6 /* NYTimesBooks.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B0D0BA20298EC2EF00B20EA6 /* NYTimesBooks.xcdatamodeld */; };
 		B0D0BA24298EC2F100B20EA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0D0BA23298EC2F100B20EA6 /* Assets.xcassets */; };
 		B0D0BA27298EC2F100B20EA6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0D0BA25298EC2F100B20EA6 /* LaunchScreen.storyboard */; };
+		B0D0BA2F298EC5E200B20EA6 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D0BA2E298EC5E200B20EA6 /* CoreDataStack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		B0D0BA23298EC2F100B20EA6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B0D0BA26298EC2F100B20EA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B0D0BA28298EC2F100B20EA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B0D0BA2E298EC5E200B20EA6 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				B0D0BA25298EC2F100B20EA6 /* LaunchScreen.storyboard */,
 				B0D0BA28298EC2F100B20EA6 /* Info.plist */,
 				B0D0BA20298EC2EF00B20EA6 /* NYTimesBooks.xcdatamodeld */,
+				B0D0BA2E298EC5E200B20EA6 /* CoreDataStack.swift */,
 			);
 			path = NYTimesBooks;
 			sourceTree = "<group>";
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0D0BA2F298EC5E200B20EA6 /* CoreDataStack.swift in Sources */,
 				B0D0BA22298EC2EF00B20EA6 /* NYTimesBooks.xcdatamodeld in Sources */,
 				B0D0BA1C298EC2EF00B20EA6 /* ViewController.swift in Sources */,
 				B0D0BA18298EC2EF00B20EA6 /* AppDelegate.swift in Sources */,
