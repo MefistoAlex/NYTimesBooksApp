@@ -18,6 +18,7 @@
 		B0D0BA34298EC96000B20EA6 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B0D0BA33298EC96000B20EA6 /* Alamofire */; };
 		B0D0BA37298ECC1100B20EA6 /* AlamofireAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D0BA36298ECC1100B20EA6 /* AlamofireAPIManager.swift */; };
 		B0D0BA3B298ED8EF00B20EA6 /* CategoryRequestResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D0BA3A298ED8EF00B20EA6 /* CategoryRequestResult.swift */; };
+		B0D0BA3E298EDAC900B20EA6 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D0BA3D298EDAC900B20EA6 /* Category.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		B0D0BA30298EC83600B20EA6 /* APIManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManagerProtocol.swift; sourceTree = "<group>"; };
 		B0D0BA36298ECC1100B20EA6 /* AlamofireAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireAPIManager.swift; sourceTree = "<group>"; };
 		B0D0BA3A298ED8EF00B20EA6 /* CategoryRequestResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRequestResult.swift; sourceTree = "<group>"; };
+		B0D0BA3D298EDAC900B20EA6 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,12 +71,12 @@
 				B0D0BA17298EC2EF00B20EA6 /* AppDelegate.swift */,
 				B0D0BA19298EC2EF00B20EA6 /* SceneDelegate.swift */,
 				B0D0BA39298ECE6900B20EA6 /* Servises */,
+				B0D0BA3C298EDA8F00B20EA6 /* Models */,
 				B0D0BA1B298EC2EF00B20EA6 /* ViewController.swift */,
 				B0D0BA23298EC2F100B20EA6 /* Assets.xcassets */,
 				B0D0BA25298EC2F100B20EA6 /* LaunchScreen.storyboard */,
 				B0D0BA28298EC2F100B20EA6 /* Info.plist */,
 				B0D0BA20298EC2EF00B20EA6 /* NYTimesBooks.xcdatamodeld */,
-				B0D0BA3C298EDA8F00B20EA6 /* Models */,
 			);
 			path = NYTimesBooks;
 			sourceTree = "<group>";
@@ -101,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				B0D0BA3A298ED8EF00B20EA6 /* CategoryRequestResult.swift */,
+				B0D0BA3D298EDAC900B20EA6 /* Category.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 				B0D0BA1C298EC2EF00B20EA6 /* ViewController.swift in Sources */,
 				B0D0BA37298ECC1100B20EA6 /* AlamofireAPIManager.swift in Sources */,
 				B0D0BA3B298ED8EF00B20EA6 /* CategoryRequestResult.swift in Sources */,
+				B0D0BA3E298EDAC900B20EA6 /* Category.swift in Sources */,
 				B0D0BA18298EC2EF00B20EA6 /* AppDelegate.swift in Sources */,
 				B0D0BA31298EC83600B20EA6 /* APIManagerProtocol.swift in Sources */,
 				B0D0BA1A298EC2EF00B20EA6 /* SceneDelegate.swift in Sources */,
