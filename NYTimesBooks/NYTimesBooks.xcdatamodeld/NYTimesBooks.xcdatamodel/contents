@@ -10,7 +10,6 @@
         <attribute name="title" optional="YES" attributeType="String"/>
     </entity>
     <entity name="CategoryEntity" representedClassName="CategoryEntity" syncable="YES" codeGenerationType="class">
-        <attribute name="attribute" optional="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="nameEncoded" optional="YES" attributeType="String"/>
         <attribute name="newestPublishedDate" optional="YES" attributeType="String"/>
