@@ -23,14 +23,14 @@ struct BookRequestResult: Decodable {
 
         struct BookDetail: Decodable {
             let title: String
-            let description: String
+            let annotation: String
             let author: String
             let publisher: String
             let isnb13: String
             
             enum CodingKeys: String, CodingKey {
                 case title = "title"
-                case description = "description"
+                case annotation = "description"
                 case author = "author"
                 case publisher = "publisher"
                 case isnb13 = "primary_isbn13"
