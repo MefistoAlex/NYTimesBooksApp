@@ -12,7 +12,7 @@ final class CoreDataStack{
 
     lazy var persistentContainer: NSPersistentContainer = {
 
-        let container = NSPersistentContainer(name: "NYTimesApp")
+        let container = NSPersistentContainer(name: "NYTimesBooks")
         container.loadPersistentStores(completionHandler: { _, error in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
