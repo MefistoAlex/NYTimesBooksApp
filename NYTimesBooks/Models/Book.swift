@@ -14,8 +14,9 @@ struct Book {
     let isnb13: String
     let amazonUrl: String
     let rank: Int
+    let categoryEncodedName: String
 
-    init(from incomingBook: BookRequestResult.BookIncoming) {
+    init(from incomingBook: BookRequestResult.BookIncoming, categoryName: String) {
         title = incomingBook.bookDetail[0].description
         description = incomingBook.bookDetail[0].description
         author = incomingBook.bookDetail[0].author
@@ -23,10 +24,10 @@ struct Book {
         isnb13 = incomingBook.bookDetail[0].isnb13
         amazonUrl = incomingBook.amazonUrl
         rank = incomingBook.rank
+        categoryEncodedName = categoryName
     }
-    
 
-    init(title: String, description: String, author: String, publisher: String, isnb13: String, amazonUrl: String, rank: Int) {
+    init(title: String, description: String, author: String, publisher: String, isnb13: String, amazonUrl: String, rank: Int, categoryEncodedName: String) {
         self.title = title
         self.description = description
         self.author = author
@@ -34,5 +35,6 @@ struct Book {
         self.isnb13 = isnb13
         self.amazonUrl = amazonUrl
         self.rank = rank
+        self.categoryEncodedName = categoryEncodedName
     }
 }
