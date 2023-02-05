@@ -10,6 +10,7 @@
 		B02734CC298F93CC00BF07E4 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02734CB298F93CB00BF07E4 /* Book.swift */; };
 		B02734D3298F980C00BF07E4 /* CategoriesAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02734D2298F980C00BF07E4 /* CategoriesAPIService.swift */; };
 		B02734D5298F99C200BF07E4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02734D4298F99C200BF07E4 /* Constants.swift */; };
+		B02734D7298FAD3600BF07E4 /* BooksAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02734D6298FAD3600BF07E4 /* BooksAPIService.swift */; };
 		B0D0BA18298EC2EF00B20EA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D0BA17298EC2EF00B20EA6 /* AppDelegate.swift */; };
 		B0D0BA1A298EC2EF00B20EA6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D0BA19298EC2EF00B20EA6 /* SceneDelegate.swift */; };
 		B0D0BA1C298EC2EF00B20EA6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D0BA1B298EC2EF00B20EA6 /* ViewController.swift */; };
@@ -29,6 +30,7 @@
 		B02734CB298F93CB00BF07E4 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		B02734D2298F980C00BF07E4 /* CategoriesAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesAPIService.swift; sourceTree = "<group>"; };
 		B02734D4298F99C200BF07E4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B02734D6298FAD3600BF07E4 /* BooksAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksAPIService.swift; sourceTree = "<group>"; };
 		B0D0BA14298EC2EF00B20EA6 /* NYTimesBooks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NYTimesBooks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0D0BA17298EC2EF00B20EA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B0D0BA19298EC2EF00B20EA6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				B0D0BA38298ECD5C00B20EA6 /* API Manager */,
 				B0D0BA2E298EC5E200B20EA6 /* CoreDataStack.swift */,
 				B02734D2298F980C00BF07E4 /* CategoriesAPIService.swift */,
+				B02734D6298FAD3600BF07E4 /* BooksAPIService.swift */,
 			);
 			path = Servises;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 				B0D0BA37298ECC1100B20EA6 /* AlamofireAPIManager.swift in Sources */,
 				B0D0BA3B298ED8EF00B20EA6 /* CategoryRequestResult.swift in Sources */,
 				B0D0BA40298EE1F800B20EA6 /* BookRequestResult.swift in Sources */,
+				B02734D7298FAD3600BF07E4 /* BooksAPIService.swift in Sources */,
 				B02734D5298F99C200BF07E4 /* Constants.swift in Sources */,
 				B0D0BA3E298EDAC900B20EA6 /* Category.swift in Sources */,
 				B0D0BA18298EC2EF00B20EA6 /* AppDelegate.swift in Sources */,
