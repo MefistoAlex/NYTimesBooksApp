@@ -22,4 +22,12 @@ struct CategoryRequestResult: Decodable {
             case newestPublishedDate = "newest_published_date"
         }
     }
+    func toCategories() -> [Category] {
+        var categories = [Category]()
+        for incomingCategory in results {
+            let category = Category(from: incomingCategory)
+            categories.append(category)
+        }
+        return categories
+    }
 }

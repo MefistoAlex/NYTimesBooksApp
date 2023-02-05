@@ -13,7 +13,7 @@ struct BookRequestResult: Decodable {
     struct BookIncoming: Decodable {
         let amazonUrl: String
         let rank: Int
-        let bookDetail: [String]
+        let bookDetail: [BookDetail]
 
         enum CodingKeys: String, CodingKey {
             case amazonUrl = "amazon_product_url"
@@ -37,6 +37,20 @@ struct BookRequestResult: Decodable {
             }
         }
     }
-    
+     
+    func toBooks() -> [Book] {
+        var books = [Book]()
+        for incomingBook in results {
+            let book = Book(title: incomingBook.bookDetail[0].description,
+                            description: incomingBook.bookDetail[0].description,
+                            author: incomingBook.bookDetail[0].author,
+                            publisher: incomingBook.bookDetail[0].publisher,
+                            isnb13: incomingBook.bookDetail[0].isnb13,
+                            amazonUrl: incomingBook.amazonUrl,
+                            rank: incomingBook.rank)
+            books.append(book)
+        }
+        return books
+    }
 
 }
