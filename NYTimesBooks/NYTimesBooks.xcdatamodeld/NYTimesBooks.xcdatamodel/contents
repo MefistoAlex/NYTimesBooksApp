@@ -4,6 +4,7 @@
         <attribute name="author" optional="YES" attributeType="String"/>
         <attribute name="bookDescription" optional="YES" attributeType="String"/>
         <attribute name="categoryEncodedName" optional="YES" attributeType="String"/>
+        <attribute name="imageURL" optional="YES" attributeType="String"/>
         <attribute name="isnb13" optional="YES" attributeType="String"/>
         <attribute name="publisher" optional="YES" attributeType="String"/>
         <attribute name="rank" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>

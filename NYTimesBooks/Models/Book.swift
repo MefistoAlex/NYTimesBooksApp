@@ -15,6 +15,7 @@ struct Book {
     let amazonUrl: String
     let rank: Int
     let categoryEncodedName: String
+    let imageURL: String
 
     init(from incomingBook: BookRequestResult.BookIncoming, categoryName: String) {
         title = incomingBook.bookDetail[0].description
@@ -25,6 +26,7 @@ struct Book {
         amazonUrl = incomingBook.amazonUrl
         rank = incomingBook.rank
         categoryEncodedName = categoryName
+        imageURL = "https://storage.googleapis.com/du-prd/books/images/\(isnb13).jpg"
     }
 
     init(title: String, description: String, author: String, publisher: String, isnb13: String, amazonUrl: String, rank: Int, categoryEncodedName: String) {
@@ -36,5 +38,6 @@ struct Book {
         self.amazonUrl = amazonUrl
         self.rank = rank
         self.categoryEncodedName = categoryEncodedName
+        imageURL = "https://storage.googleapis.com/du-prd/books/images/\(isnb13).jpg"
     }
 }
