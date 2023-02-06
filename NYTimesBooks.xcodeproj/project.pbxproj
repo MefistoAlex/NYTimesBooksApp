@@ -21,7 +21,6 @@
 		B0C8DFE7299185D6000BC306 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C8DFE6299185D6000BC306 /* BookTableViewCell.swift */; };
 		B0D0BA18298EC2EF00B20EA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D0BA17298EC2EF00B20EA6 /* AppDelegate.swift */; };
 		B0D0BA1A298EC2EF00B20EA6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D0BA19298EC2EF00B20EA6 /* SceneDelegate.swift */; };
-		B0D0BA1C298EC2EF00B20EA6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D0BA1B298EC2EF00B20EA6 /* ViewController.swift */; };
 		B0D0BA22298EC2EF00B20EA6 /* NYTimesBooks.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B0D0BA20298EC2EF00B20EA6 /* NYTimesBooks.xcdatamodeld */; };
 		B0D0BA24298EC2F100B20EA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0D0BA23298EC2F100B20EA6 /* Assets.xcassets */; };
 		B0D0BA27298EC2F100B20EA6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0D0BA25298EC2F100B20EA6 /* LaunchScreen.storyboard */; };
@@ -48,7 +47,6 @@
 		B0D0BA14298EC2EF00B20EA6 /* NYTimesBooks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NYTimesBooks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0D0BA17298EC2EF00B20EA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B0D0BA19298EC2EF00B20EA6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B0D0BA1B298EC2EF00B20EA6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B0D0BA21298EC2EF00B20EA6 /* NYTimesBooks.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NYTimesBooks.xcdatamodel; sourceTree = "<group>"; };
 		B0D0BA23298EC2F100B20EA6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B0D0BA26298EC2F100B20EA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -145,7 +143,6 @@
 				B0D0BA3C298EDA8F00B20EA6 /* Models */,
 				B02734E2298FC46400BF07E4 /* Views */,
 				B02734DD298FB96A00BF07E4 /* ViewModels */,
-				B0D0BA1B298EC2EF00B20EA6 /* ViewController.swift */,
 				B0D0BA23298EC2F100B20EA6 /* Assets.xcassets */,
 				B0D0BA25298EC2F100B20EA6 /* LaunchScreen.storyboard */,
 				B0D0BA28298EC2F100B20EA6 /* Info.plist */,
@@ -266,7 +263,6 @@
 			files = (
 				B0D0BA2F298EC5E200B20EA6 /* CoreDataStack.swift in Sources */,
 				B0D0BA22298EC2EF00B20EA6 /* NYTimesBooks.xcdatamodeld in Sources */,
-				B0D0BA1C298EC2EF00B20EA6 /* ViewController.swift in Sources */,
 				B0C8DFE529918463000BC306 /* BooksTableViewController.swift in Sources */,
 				B0C8DFE129917DF3000BC306 /* UIViewController+showErrorAlert.swift in Sources */,
 				B02734E1298FC45200BF07E4 /* CategoriesTableViewController.swift in Sources */,
