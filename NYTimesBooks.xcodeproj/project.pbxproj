@@ -17,6 +17,8 @@
 		B02734E1298FC45200BF07E4 /* CategoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02734E0298FC45200BF07E4 /* CategoriesTableViewController.swift */; };
 		B02734E6298FCF9400BF07E4 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02734E5298FCF9400BF07E4 /* CategoryTableViewCell.swift */; };
 		B0C8DFE129917DF3000BC306 /* UIViewController+showErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C8DFE029917DF3000BC306 /* UIViewController+showErrorAlert.swift */; };
+		B0C8DFE529918463000BC306 /* BooksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C8DFE429918463000BC306 /* BooksTableViewController.swift */; };
+		B0C8DFE7299185D6000BC306 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C8DFE6299185D6000BC306 /* BookTableViewCell.swift */; };
 		B0D0BA18298EC2EF00B20EA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D0BA17298EC2EF00B20EA6 /* AppDelegate.swift */; };
 		B0D0BA1A298EC2EF00B20EA6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D0BA19298EC2EF00B20EA6 /* SceneDelegate.swift */; };
 		B0D0BA1C298EC2EF00B20EA6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D0BA1B298EC2EF00B20EA6 /* ViewController.swift */; };
@@ -41,6 +43,8 @@
 		B02734E0298FC45200BF07E4 /* CategoriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesTableViewController.swift; sourceTree = "<group>"; };
 		B02734E5298FCF9400BF07E4 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		B0C8DFE029917DF3000BC306 /* UIViewController+showErrorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+showErrorAlert.swift"; sourceTree = "<group>"; };
+		B0C8DFE429918463000BC306 /* BooksTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksTableViewController.swift; sourceTree = "<group>"; };
+		B0C8DFE6299185D6000BC306 /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
 		B0D0BA14298EC2EF00B20EA6 /* NYTimesBooks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NYTimesBooks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0D0BA17298EC2EF00B20EA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B0D0BA19298EC2EF00B20EA6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -91,10 +95,28 @@
 		B02734E2298FC46400BF07E4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B0C8DFE329918428000BC306 /* Books */,
+				B0C8DFE22991841D000BC306 /* Categories */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B0C8DFE22991841D000BC306 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
 				B02734E0298FC45200BF07E4 /* CategoriesTableViewController.swift */,
 				B02734E5298FCF9400BF07E4 /* CategoryTableViewCell.swift */,
 			);
-			path = Views;
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		B0C8DFE329918428000BC306 /* Books */ = {
+			isa = PBXGroup;
+			children = (
+				B0C8DFE429918463000BC306 /* BooksTableViewController.swift */,
+				B0C8DFE6299185D6000BC306 /* BookTableViewCell.swift */,
+			);
+			path = Books;
 			sourceTree = "<group>";
 		};
 		B0D0BA0B298EC2EF00B20EA6 = {
@@ -245,10 +267,12 @@
 				B0D0BA2F298EC5E200B20EA6 /* CoreDataStack.swift in Sources */,
 				B0D0BA22298EC2EF00B20EA6 /* NYTimesBooks.xcdatamodeld in Sources */,
 				B0D0BA1C298EC2EF00B20EA6 /* ViewController.swift in Sources */,
+				B0C8DFE529918463000BC306 /* BooksTableViewController.swift in Sources */,
 				B0C8DFE129917DF3000BC306 /* UIViewController+showErrorAlert.swift in Sources */,
 				B02734E1298FC45200BF07E4 /* CategoriesTableViewController.swift in Sources */,
 				B02734CC298F93CC00BF07E4 /* Book.swift in Sources */,
 				B0D0BA37298ECC1100B20EA6 /* AlamofireAPIManager.swift in Sources */,
+				B0C8DFE7299185D6000BC306 /* BookTableViewCell.swift in Sources */,
 				B0D0BA3B298ED8EF00B20EA6 /* CategoryRequestResult.swift in Sources */,
 				B0D0BA40298EE1F800B20EA6 /* BookRequestResult.swift in Sources */,
 				B02734DF298FB98500BF07E4 /* CategoriesViewModel.swift in Sources */,
