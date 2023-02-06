@@ -19,6 +19,7 @@
 		B0C8DFE129917DF3000BC306 /* UIViewController+showErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C8DFE029917DF3000BC306 /* UIViewController+showErrorAlert.swift */; };
 		B0C8DFE529918463000BC306 /* BooksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C8DFE429918463000BC306 /* BooksTableViewController.swift */; };
 		B0C8DFE7299185D6000BC306 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C8DFE6299185D6000BC306 /* BookTableViewCell.swift */; };
+		B0C8DFEA29919136000BC306 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = B0C8DFE929919136000BC306 /* Kingfisher */; };
 		B0D0BA18298EC2EF00B20EA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D0BA17298EC2EF00B20EA6 /* AppDelegate.swift */; };
 		B0D0BA1A298EC2EF00B20EA6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D0BA19298EC2EF00B20EA6 /* SceneDelegate.swift */; };
 		B0D0BA22298EC2EF00B20EA6 /* NYTimesBooks.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B0D0BA20298EC2EF00B20EA6 /* NYTimesBooks.xcdatamodeld */; };
@@ -64,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0C8DFEA29919136000BC306 /* Kingfisher in Frameworks */,
 				B02734DC298FB87400BF07E4 /* RxSwift in Frameworks */,
 				B02734DA298FB87400BF07E4 /* RxCocoa in Frameworks */,
 				B0D0BA34298EC96000B20EA6 /* Alamofire in Frameworks */,
@@ -202,6 +204,7 @@
 				B0D0BA33298EC96000B20EA6 /* Alamofire */,
 				B02734D9298FB87400BF07E4 /* RxCocoa */,
 				B02734DB298FB87400BF07E4 /* RxSwift */,
+				B0C8DFE929919136000BC306 /* Kingfisher */,
 			);
 			productName = NYTimesBooks;
 			productReference = B0D0BA14298EC2EF00B20EA6 /* NYTimesBooks.app */;
@@ -234,6 +237,7 @@
 			packageReferences = (
 				B0D0BA32298EC96000B20EA6 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				B02734D8298FB87400BF07E4 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				B0C8DFE829919136000BC306 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = B0D0BA15298EC2EF00B20EA6 /* Products */;
 			projectDirPath = "";
@@ -501,6 +505,14 @@
 				kind = branch;
 			};
 		};
+		B0C8DFE829919136000BC306 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 		B0D0BA32298EC96000B20EA6 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -521,6 +533,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B02734D8298FB87400BF07E4 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
+		};
+		B0C8DFE929919136000BC306 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B0C8DFE829919136000BC306 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 		B0D0BA33298EC96000B20EA6 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
