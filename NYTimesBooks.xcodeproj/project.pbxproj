@@ -20,6 +20,7 @@
 		B0C8DFE529918463000BC306 /* BooksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C8DFE429918463000BC306 /* BooksTableViewController.swift */; };
 		B0C8DFE7299185D6000BC306 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C8DFE6299185D6000BC306 /* BookTableViewCell.swift */; };
 		B0C8DFEA29919136000BC306 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = B0C8DFE929919136000BC306 /* Kingfisher */; };
+		B0C8DFEC29919493000BC306 /* BooksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C8DFEB29919493000BC306 /* BooksViewModel.swift */; };
 		B0D0BA18298EC2EF00B20EA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D0BA17298EC2EF00B20EA6 /* AppDelegate.swift */; };
 		B0D0BA1A298EC2EF00B20EA6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D0BA19298EC2EF00B20EA6 /* SceneDelegate.swift */; };
 		B0D0BA22298EC2EF00B20EA6 /* NYTimesBooks.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B0D0BA20298EC2EF00B20EA6 /* NYTimesBooks.xcdatamodeld */; };
@@ -45,6 +46,7 @@
 		B0C8DFE029917DF3000BC306 /* UIViewController+showErrorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+showErrorAlert.swift"; sourceTree = "<group>"; };
 		B0C8DFE429918463000BC306 /* BooksTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksTableViewController.swift; sourceTree = "<group>"; };
 		B0C8DFE6299185D6000BC306 /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
+		B0C8DFEB29919493000BC306 /* BooksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksViewModel.swift; sourceTree = "<group>"; };
 		B0D0BA14298EC2EF00B20EA6 /* NYTimesBooks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NYTimesBooks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0D0BA17298EC2EF00B20EA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B0D0BA19298EC2EF00B20EA6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				B02734DE298FB98500BF07E4 /* CategoriesViewModel.swift */,
+				B0C8DFEB29919493000BC306 /* BooksViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				B02734DF298FB98500BF07E4 /* CategoriesViewModel.swift in Sources */,
 				B02734D7298FAD3600BF07E4 /* BooksAPIService.swift in Sources */,
 				B02734D5298F99C200BF07E4 /* Constants.swift in Sources */,
+				B0C8DFEC29919493000BC306 /* BooksViewModel.swift in Sources */,
 				B0D0BA3E298EDAC900B20EA6 /* Category.swift in Sources */,
 				B0D0BA18298EC2EF00B20EA6 /* AppDelegate.swift in Sources */,
 				B0D0BA31298EC83600B20EA6 /* APIManagerProtocol.swift in Sources */,
