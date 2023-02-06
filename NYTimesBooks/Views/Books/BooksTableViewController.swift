@@ -5,85 +5,76 @@
 //  Created by Alexandr Mefisto on 06.02.2023.
 //
 
+import RxCocoa
+import RxSwift
 import UIKit
 
 class BooksTableViewController: UITableViewController {
+    // MARK: - Properties
+
+    private var category: Category?
+    let disposeBag = DisposeBag()
+    let booksViewModel = BooksViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
-    // MARK: - Table view data source
+    // MARK: - Set Category
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+    func setCategory(_ category: Category) {
+        self.category = category
+        tableViewConfigure()
+        errorHandling()
+        booksViewModel.getBooks(by: category)
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+    // MARK: - TableView
+
+    func tableViewConfigure() {
+        tableView.dataSource = nil
+
+        let refreshControl = UIRefreshControl()
+        refreshControl.accessibilityViewIsModal = true
+        refreshControl.addTarget(self, action: #selector(refreshTableData), for: .valueChanged)
+        tableView.refreshControl = refreshControl
+
+        tableView.register(BookTableViewCell.self, forCellReuseIdentifier: String(describing: BookTableViewCell.self))
+
+        booksViewModel.books.asDriver(onErrorJustReturn: [Book]())
+            .drive(tableView.rx.items(
+                cellIdentifier: String(describing: BookTableViewCell.self),
+                cellType: BookTableViewCell.self)) { _, book, cell in
+                    cell.awakeFromNib()
+                    cell.setBook(book)
+            }.disposed(by: disposeBag)
+
+        tableView.rx.modelSelected(Book.self).asDriver().drive { book in
+            print(book)
+        }.disposed(by: disposeBag)
+
+        tableView.rx.itemSelected.asDriver().drive { [weak self] indexPath in
+            self?.tableView.deselectRow(at: indexPath, animated: true)
+        }.disposed(by: disposeBag)
+
+        booksViewModel.books.subscribe { [weak self] _ in
+            self?.tableView.refreshControl?.endRefreshing()
+        }.disposed(by: disposeBag)
     }
 
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+    @objc func refreshTableData() {
+        tableView.refreshControl?.beginRefreshing()
+        if let category {
+            booksViewModel.getBooks(by: category)
+        }
     }
-    */
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    // MARK: - Error alert
+
+    func errorHandling() {
+        booksViewModel.booksError.subscribe { [weak self] error in
+            self?.showErrorAlert(with: error)
+            self?.tableView.refreshControl?.endRefreshing()
+        }.disposed(by: disposeBag)
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
