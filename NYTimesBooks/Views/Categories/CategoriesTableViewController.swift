@@ -20,7 +20,7 @@ class CategoriesTableViewController: UITableViewController {
         title = "Categories"
         tableViewConfigure()
         errorHandling()
-        categoriesViewModel.getNews()
+        categoriesViewModel.getCategories()
     }
 
     
@@ -47,8 +47,10 @@ class CategoriesTableViewController: UITableViewController {
             }.disposed(by: disposeBag)
 
         
-        tableView.rx.modelSelected(Category.self).asDriver().drive { category in
-            print(category)
+        tableView.rx.modelSelected(Category.self).asDriver().drive {[weak self] category in
+            let bookViewController = BooksTableViewController()
+            bookViewController.setCategory(category)
+            self?.navigationController?.pushViewController(bookViewController, animated: true)
         }.disposed(by: disposeBag)
         
 
@@ -65,7 +67,7 @@ class CategoriesTableViewController: UITableViewController {
     
     @objc func refreshTableData() {
         tableView.refreshControl?.beginRefreshing()
-        categoriesViewModel.getNews()
+        categoriesViewModel.getCategories()
     }
     
     //MARK: - Error alert

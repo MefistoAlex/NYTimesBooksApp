@@ -20,7 +20,7 @@ class CategoriesViewModel {
         categoriesService = CategoriesAPIService()
     }
 
-    func getNews() {
+    func getCategories() {
         categoriesService.getCategories { [weak self] categories, error in
             if let error {
                 self?.errorSubject.onNext(error)
