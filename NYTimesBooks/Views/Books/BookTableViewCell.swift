@@ -5,6 +5,7 @@
 //  Created by Alexandr Mefisto on 06.02.2023.
 //
 
+import Kingfisher
 import UIKit
 
 class BookTableViewCell: UITableViewCell {
@@ -20,8 +21,7 @@ class BookTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-       
-        
+
         cellConfigure()
         bookImageConfigure()
         titleLabelConfigure()
@@ -78,6 +78,7 @@ class BookTableViewCell: UITableViewCell {
             annotationLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5),
         ])
     }
+
     private func authorLabelConfigure() {
         addSubview(authorLabel)
         authorLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -88,7 +89,7 @@ class BookTableViewCell: UITableViewCell {
             authorLabel.topAnchor.constraint(equalTo: annotationLabel.bottomAnchor, constant: 5),
         ])
     }
-    
+
     private func publisherLabelConfigure() {
         addSubview(publisherLabel)
         publisherLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -99,7 +100,7 @@ class BookTableViewCell: UITableViewCell {
             publisherLabel.topAnchor.constraint(equalTo: authorLabel.bottomAnchor, constant: 5),
         ])
     }
-    
+
     private func rankLabelConfigure() {
         addSubview(rankLabel)
         rankLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -109,5 +110,18 @@ class BookTableViewCell: UITableViewCell {
             rankLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             rankLabel.topAnchor.constraint(equalTo: authorLabel.bottomAnchor, constant: 5),
         ])
+    }
+
+    // MARK: - Data Setting
+
+    func setBook(_ book: Book) {
+        let url = URL(string: book.imageURL)
+        bookImage.kf.setImage(with: url)
+
+        titleLabel.text = book.title
+        annotationLabel.text = book.annotation
+        authorLabel.text = book.author
+        publisherLabel.text = book.publisher
+        rankLabel.text = String(book.rank)
     }
 }
