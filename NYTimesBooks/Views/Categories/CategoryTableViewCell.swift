@@ -13,7 +13,6 @@ class CategoryTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-
         NSLayoutConstraint.activate([
             heightAnchor.constraint(equalToConstant: 50),
         ])
@@ -23,8 +22,6 @@ class CategoryTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
     private func configureCategoryName() {
