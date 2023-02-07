@@ -22,7 +22,6 @@ class BookTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        cellConfigure()
         bookImageConfigure()
         titleLabelConfigure()
         annotationLabelConfigure()
@@ -39,22 +38,18 @@ class BookTableViewCell: UITableViewCell {
 
     // MARK: - Cell Confirure
 
-    private func cellConfigure() {
-        NSLayoutConstraint.activate([
-            heightAnchor.constraint(equalToConstant: 210),
-        ])
-    }
-
     private func bookImageConfigure() {
         addSubview(bookImage)
         bookImage.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            bookImage.heightAnchor.constraint(equalToConstant: 200),
-            bookImage.widthAnchor.constraint(equalToConstant: 200),
+            bookImage.heightAnchor.constraint(equalToConstant: 100),
+            bookImage.widthAnchor.constraint(equalToConstant: 75),
             bookImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             bookImage.topAnchor.constraint(equalTo: topAnchor, constant: 5),
-            bookImage.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5),
+            bookImage.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor, constant: -5),
         ])
+        
+        bookImage.contentMode = .scaleAspectFit
     }
 
     private func titleLabelConfigure() {
@@ -66,17 +61,22 @@ class BookTableViewCell: UITableViewCell {
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 5),
         ])
+        
+        titleLabel.adjustsFontSizeToFitWidth = true
+        titleLabel.font = UIFont.preferredFont(forTextStyle: .headline)
     }
 
     private func annotationLabelConfigure() {
         addSubview(annotationLabel)
         annotationLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            annotationLabel.heightAnchor.constraint(equalToConstant: 20),
             annotationLabel.leadingAnchor.constraint(equalTo: bookImage.trailingAnchor, constant: 20),
             annotationLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             annotationLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5),
         ])
+        
+        annotationLabel.numberOfLines = 0
+        annotationLabel.font = UIFont(name: "Avenir-LightOblique", size: 17)
     }
 
     private func authorLabelConfigure() {
@@ -108,7 +108,8 @@ class BookTableViewCell: UITableViewCell {
             rankLabel.heightAnchor.constraint(equalToConstant: 20),
             rankLabel.leadingAnchor.constraint(equalTo: bookImage.trailingAnchor, constant: 20),
             rankLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            rankLabel.topAnchor.constraint(equalTo: authorLabel.bottomAnchor, constant: 5),
+            rankLabel.topAnchor.constraint(equalTo: publisherLabel.bottomAnchor, constant: 5),
+            rankLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5),
         ])
     }
 
@@ -116,12 +117,12 @@ class BookTableViewCell: UITableViewCell {
 
     func setBook(_ book: Book) {
         let url = URL(string: book.imageURL)
-        bookImage.kf.setImage(with: url)
-
+        bookImage.kf.setImage(with: url, placeholder: UIImage(systemName: "book"))
+    
         titleLabel.text = book.title
         annotationLabel.text = book.annotation
-        authorLabel.text = book.author
-        publisherLabel.text = book.publisher
-        rankLabel.text = String(book.rank)
+        authorLabel.text = "Author: \(book.author)"
+        publisherLabel.text = "Publisher: \(book.publisher)"
+        rankLabel.text = "Rank: \(book.rank)"
     }
 }
