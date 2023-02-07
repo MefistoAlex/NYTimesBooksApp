@@ -11,7 +11,7 @@ protocol CategoriesAPIServiceProtocol {
     func getCategories(completion: @escaping (_ articles: [Category]?, _ error: Error?) -> Void)
 }
 
-class CategoriesAPIService: CategoriesAPIServiceProtocol {
+final class CategoriesAPIService: CategoriesAPIServiceProtocol {
     private let apiManager: APIManager
 
     init() {

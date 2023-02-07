@@ -9,7 +9,7 @@ import Foundation
 protocol BooksAPIServiceProtocol {
     func getBooksByCategoryName(categoryName: String ,completion: @escaping (_ books: [Book]?, _ error: Error?) -> Void)
 }
-class BooksAPIService: BooksAPIServiceProtocol {
+final class BooksAPIService: BooksAPIServiceProtocol {
     private let apiManager: APIManager
 
     init() {
