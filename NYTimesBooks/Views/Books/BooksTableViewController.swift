@@ -49,8 +49,10 @@ class BooksTableViewController: UITableViewController {
                     cell.setBook(book)
             }.disposed(by: disposeBag)
 
-        tableView.rx.modelSelected(Book.self).asDriver().drive { book in
-            print(book)
+        tableView.rx.modelSelected(Book.self).asDriver().drive {[weak self] book in
+            let bookToBuyController = BookToBuyViewController()
+            bookToBuyController.setBook(book)
+            self?.navigationController?.pushViewController(bookToBuyController, animated: true)
         }.disposed(by: disposeBag)
 
         tableView.rx.itemSelected.asDriver().drive { [weak self] indexPath in
