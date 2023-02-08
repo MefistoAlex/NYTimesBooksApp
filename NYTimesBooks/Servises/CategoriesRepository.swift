@@ -47,7 +47,7 @@ final class CategoriesRepository {
     private func fetchCategories() -> [CategoryEntity] {
         let managedObjectContext = coreData.persistentContainer.viewContext
         let request = CategoryEntity.fetchRequest()
-        var requestResult = try? managedObjectContext.fetch(request)
+        let requestResult = try? managedObjectContext.fetch(request)
         return requestResult ?? []
     }
 
