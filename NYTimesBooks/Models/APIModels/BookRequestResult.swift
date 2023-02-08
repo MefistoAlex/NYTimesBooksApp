@@ -17,7 +17,7 @@ struct BookRequestResult: Decodable {
 
         enum CodingKeys: String, CodingKey {
             case amazonUrl = "amazon_product_url"
-            case rank = "rank"
+            case rank
             case bookDetail = "book_details"
         }
 
@@ -29,10 +29,10 @@ struct BookRequestResult: Decodable {
             let isnb13: String
             
             enum CodingKeys: String, CodingKey {
-                case title = "title"
+                case title
                 case annotation = "description"
-                case author = "author"
-                case publisher = "publisher"
+                case author
+                case publisher 
                 case isnb13 = "primary_isbn13"
             }
         }
