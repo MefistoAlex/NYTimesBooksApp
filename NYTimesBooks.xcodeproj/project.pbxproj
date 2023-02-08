@@ -17,6 +17,8 @@
 		B02734E1298FC45200BF07E4 /* CategoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02734E0298FC45200BF07E4 /* CategoriesTableViewController.swift */; };
 		B02734E6298FCF9400BF07E4 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02734E5298FCF9400BF07E4 /* CategoryTableViewCell.swift */; };
 		B073F96029924EBB00F4D533 /* BookToBuyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B073F95F29924EBB00F4D533 /* BookToBuyViewController.swift */; };
+		B0AC06182993817D00979746 /* BookImageAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AC06172993817D00979746 /* BookImageAPIService.swift */; };
+		B0AC061A2993838C00979746 /* BookImageRequestResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AC06192993838C00979746 /* BookImageRequestResult.swift */; };
 		B0C8DFE129917DF3000BC306 /* UIViewController+showErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C8DFE029917DF3000BC306 /* UIViewController+showErrorAlert.swift */; };
 		B0C8DFE529918463000BC306 /* BooksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C8DFE429918463000BC306 /* BooksTableViewController.swift */; };
 		B0C8DFE7299185D6000BC306 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C8DFE6299185D6000BC306 /* BookTableViewCell.swift */; };
@@ -45,6 +47,8 @@
 		B02734E0298FC45200BF07E4 /* CategoriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesTableViewController.swift; sourceTree = "<group>"; };
 		B02734E5298FCF9400BF07E4 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		B073F95F29924EBB00F4D533 /* BookToBuyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookToBuyViewController.swift; sourceTree = "<group>"; };
+		B0AC06172993817D00979746 /* BookImageAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookImageAPIService.swift; sourceTree = "<group>"; };
+		B0AC06192993838C00979746 /* BookImageRequestResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookImageRequestResult.swift; sourceTree = "<group>"; };
 		B0C8DFE029917DF3000BC306 /* UIViewController+showErrorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+showErrorAlert.swift"; sourceTree = "<group>"; };
 		B0C8DFE429918463000BC306 /* BooksTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksTableViewController.swift; sourceTree = "<group>"; };
 		B0C8DFE6299185D6000BC306 /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
@@ -84,6 +88,7 @@
 			children = (
 				B0D0BA3A298ED8EF00B20EA6 /* CategoryRequestResult.swift */,
 				B0D0BA3F298EE1F800B20EA6 /* BookRequestResult.swift */,
+				B0AC06192993838C00979746 /* BookImageRequestResult.swift */,
 			);
 			path = APIModels;
 			sourceTree = "<group>";
@@ -176,6 +181,7 @@
 				B0D0BA2E298EC5E200B20EA6 /* CoreDataStack.swift */,
 				B02734D2298F980C00BF07E4 /* CategoriesAPIService.swift */,
 				B02734D6298FAD3600BF07E4 /* BooksAPIService.swift */,
+				B0AC06172993817D00979746 /* BookImageAPIService.swift */,
 			);
 			path = Servises;
 			sourceTree = "<group>";
@@ -284,6 +290,7 @@
 				B0D0BA40298EE1F800B20EA6 /* BookRequestResult.swift in Sources */,
 				B02734DF298FB98500BF07E4 /* CategoriesViewModel.swift in Sources */,
 				B02734D7298FAD3600BF07E4 /* BooksAPIService.swift in Sources */,
+				B0AC06182993817D00979746 /* BookImageAPIService.swift in Sources */,
 				B02734D5298F99C200BF07E4 /* Constants.swift in Sources */,
 				B0C8DFEC29919493000BC306 /* BooksViewModel.swift in Sources */,
 				B0D0BA3E298EDAC900B20EA6 /* Category.swift in Sources */,
@@ -291,6 +298,7 @@
 				B0D0BA31298EC83600B20EA6 /* APIManagerProtocol.swift in Sources */,
 				B02734D3298F980C00BF07E4 /* CategoriesAPIService.swift in Sources */,
 				B0D0BA1A298EC2EF00B20EA6 /* SceneDelegate.swift in Sources */,
+				B0AC061A2993838C00979746 /* BookImageRequestResult.swift in Sources */,
 				B02734E6298FCF9400BF07E4 /* CategoryTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
