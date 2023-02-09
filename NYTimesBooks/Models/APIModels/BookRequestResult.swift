@@ -12,7 +12,7 @@ struct BookRequestResult: Decodable {
 
     struct BookIncoming: Decodable {
         let amazonUrl: String
-        let rank: Int
+        let rank: Int16
         let bookDetail: [BookDetail]
 
         enum CodingKeys: String, CodingKey {
