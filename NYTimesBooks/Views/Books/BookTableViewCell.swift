@@ -116,9 +116,11 @@ class BookTableViewCell: UITableViewCell {
     // MARK: - Data Setting
 
     func setBook(_ book: Book) {
-        let url = URL(string: book.imageURL)
-        bookImage.kf.setImage(with: url, placeholder: UIImage(systemName: "book"))
-    
+        if let imageURL = book.imageURL{
+            let url = URL(string: imageURL)
+            bookImage.kf.setImage(with: url, placeholder: UIImage(systemName: "book"))
+        }
+       
         titleLabel.text = book.title
         annotationLabel.text = book.annotation
         authorLabel.text = "Author: \(book.author)"
