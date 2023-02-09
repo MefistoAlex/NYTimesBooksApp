@@ -5,5 +5,11 @@
   Created by Alexandr Mefisto on 09.02.2023.
   
 */
-"TITLE_CATEGORIES" = "Categories"
-"TITLE_BOOKS" = "Books"
+"TITLE_CATEGORIES" = "Categories";
+"TITLE_BOOKS" = "Books";
+
+"CATEGORY_PUBDATE" = "Last update";
+
+"BOOK_AUTHOR" = "Author";
+"BOOK_PUBLISHER" = "Publisher";
+"BOOK_RANK" = "Rank";

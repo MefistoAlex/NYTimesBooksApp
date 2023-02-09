@@ -5,5 +5,11 @@
   Created by Alexandr Mefisto on 09.02.2023.
   
 */
-"TITLE_CATEGORIES" = "Категорії"
-"TITLE_BOOKS" = "Книги"
+"TITLE_CATEGORIES" = "Категорії";
+"TITLE_BOOKS" = "Книги";
+
+"CATEGORY_PUBDATE" = "Останнє оновлення";
+
+"BOOK_AUTHOR" = "Автор";
+"BOOK_PUBLISHER" = "Видавець";
+"BOOK_RANK" = "Рейтинг";
