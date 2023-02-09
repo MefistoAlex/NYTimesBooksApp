@@ -30,12 +30,6 @@ class BookTableViewCell: UITableViewCell {
         rankLabelConfigure()
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
     // MARK: - Cell Confirure
 
     private func bookImageConfigure() {
@@ -48,7 +42,7 @@ class BookTableViewCell: UITableViewCell {
             bookImage.topAnchor.constraint(equalTo: topAnchor, constant: 5),
             bookImage.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor, constant: -5),
         ])
-        
+
         bookImage.contentMode = .scaleAspectFit
     }
 
@@ -60,11 +54,10 @@ class BookTableViewCell: UITableViewCell {
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 5),
         ])
-        
+
         titleLabel.numberOfLines = 0
-       
-        titleLabel.font = UIFont(name: "AvenirNext-Heavy", size: 20)
-   }
+        titleLabel.font = UIFont(name: FontContstants.bookTitle, size: 20)
+    }
 
     private func annotationLabelConfigure() {
         addSubview(annotationLabel)
@@ -74,9 +67,9 @@ class BookTableViewCell: UITableViewCell {
             annotationLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             annotationLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
         ])
-        
+
         annotationLabel.numberOfLines = 0
-        annotationLabel.font = UIFont(name: "Avenir-LightOblique", size: 17)
+        annotationLabel.font = UIFont(name: FontContstants.bookAnnotation, size: 17)
     }
 
     private func authorLabelConfigure() {
@@ -88,7 +81,7 @@ class BookTableViewCell: UITableViewCell {
             authorLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             authorLabel.topAnchor.constraint(equalTo: annotationLabel.bottomAnchor, constant: 10),
         ])
-        authorLabel.font = UIFont(name: "Avenir-Heavy", size: 15)
+        authorLabel.font = UIFont(name: FontContstants.bookAuthor, size: 15)
     }
 
     private func publisherLabelConfigure() {
@@ -100,7 +93,7 @@ class BookTableViewCell: UITableViewCell {
             publisherLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             publisherLabel.topAnchor.constraint(equalTo: authorLabel.bottomAnchor, constant: 10),
         ])
-        publisherLabel.font = UIFont(name: "Avenir-Heavy", size: 15)
+        publisherLabel.font = UIFont(name: FontContstants.bookPublisher, size: 15)
     }
 
     private func rankLabelConfigure() {
@@ -113,28 +106,26 @@ class BookTableViewCell: UITableViewCell {
             rankLabel.topAnchor.constraint(equalTo: publisherLabel.bottomAnchor, constant: 10),
             rankLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5),
         ])
-        rankLabel.font = UIFont(name: "Avenir-Heavy", size: 15)
+        rankLabel.font = UIFont(name: FontContstants.bookRank, size: 15)
     }
 
     // MARK: - Data Setting
 
     func setBook(_ book: Book) {
-        if let imageURL = book.imageURL{
+        if let imageURL = book.imageURL {
             let url = URL(string: imageURL)
             bookImage.kf.setImage(with: url, placeholder: UIImage(systemName: "book"))
         }
-       
+
         titleLabel.text = book.title
         annotationLabel.text = book.annotation
-        
-    
+
         let authorString = NSLocalizedString("BOOK_AUTHOR", comment: "book athor label")
         let publisherString = NSLocalizedString("BOOK_PUBLISHER", comment: "book publisher label")
         let rankString = NSLocalizedString("BOOK_RANK", comment: "book rank label")
-        
-        
-        authorLabel.text =      "\(authorString): \(book.author)"
-        publisherLabel.text =   "\(publisherString): \(book.publisher)"
-        rankLabel.text =        "\(rankString): \(book.rank)"
+
+        authorLabel.text = "\(authorString): \(book.author)"
+        publisherLabel.text = "\(publisherString): \(book.publisher)"
+        rankLabel.text = "\(rankString): \(book.rank)"
     }
 }
