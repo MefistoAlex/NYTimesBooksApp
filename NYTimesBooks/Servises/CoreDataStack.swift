@@ -10,7 +10,7 @@ final class CoreDataStack{
 
     // MARK: - Core Data stack
 
-    lazy var persistentContainer: NSPersistentContainer = {
+    static var persistentContainer: NSPersistentContainer = {
 
         let container = NSPersistentContainer(name: "NYTimesBooks")
         container.loadPersistentStores(completionHandler: { _, error in
@@ -23,8 +23,8 @@ final class CoreDataStack{
 
     // MARK: - Core Data Saving support
 
-    func saveContext() {
-        let context = persistentContainer.viewContext
+    static func saveContext() {
+        let context = CoreDataStack.persistentContainer.viewContext
         if context.hasChanges {
             do {
                 try context.save()

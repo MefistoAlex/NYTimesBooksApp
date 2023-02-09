@@ -29,6 +29,13 @@ final class CategoriesRepository {
         if fetchedCategories.count > 0 {
             postCategoties(entities: fetchedCategories)
         }
+       refreshCategories()
+        
+    }
+
+    // MARK: - Privates
+
+    private func refreshCategories () {
         categoriesService.getCategories { [weak self] categories, error in
             if let error {
                 self?.errorSubject.onNext(error)
@@ -41,12 +48,11 @@ final class CategoriesRepository {
             }
         }
     }
-
-    // MARK: - Privates
-
     private func fetchCategories() -> [CategoryEntity] {
-        let managedObjectContext = coreData.persistentContainer.viewContext
+        let managedObjectContext = CoreDataStack.persistentContainer.viewContext
         let request = CategoryEntity.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        request.sortDescriptors = [sortDescriptor]
         let requestResult = try? managedObjectContext.fetch(request)
         return requestResult ?? []
     }
@@ -63,19 +69,18 @@ final class CategoriesRepository {
 
     private func createEntities(from categories: [Category]) {
         clearData()
-        let managedObjectContext = coreData.persistentContainer.viewContext
+        let managedObjectContext = CoreDataStack.persistentContainer.viewContext
         for category in categories {
             let categoryEntity = CategoryEntity(context: managedObjectContext)
             categoryEntity.name = category.name
             categoryEntity.nameEncoded = category.nameEncoded
             categoryEntity.newestPublishedDate = category.newestPublishedDate
-            print(categoryEntity)
         }
-        coreData.saveContext()
+        CoreDataStack.saveContext()
     }
 
     func clearData() {
-        let moc = coreData.persistentContainer.viewContext
+        let moc = CoreDataStack.persistentContainer.viewContext
         let request = CategoryEntity.fetchRequest()
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: request as! NSFetchRequest<NSFetchRequestResult>)
         do {
