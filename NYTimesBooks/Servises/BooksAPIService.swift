@@ -15,7 +15,6 @@ protocol BooksAPIServiceProtocol {
 
 final class BooksAPIService: BooksAPIServiceProtocol {
     private let apiManager: APIManager
-
     init() {
         apiManager = AlamofireAPIManager()
     }
@@ -30,12 +29,46 @@ final class BooksAPIService: BooksAPIServiceProtocol {
                            headers: nil,
                            parameters: parameters) { data, error in
             var books: [Book]?
+
             if let data {
                 books = []
-                data.results.forEach { incomingBookData in
-                    books?.append(Book(from: incomingBookData, categoryEncodedName: categoryName))
+                let dispatchGroup = DispatchGroup()
+
+                data.results.forEach { [weak self] incomingBookData in
+                    dispatchGroup.enter()
+                    var book = Book(from: incomingBookData, categoryEncodedName: categoryName)
+
+                    self?.getImageByIBSN(ibsn: book.isnb13, completion: { link, _ in
+                        if let link {
+                            book.imageURL = link
+                            books?.append(book)
+                        }
+                        dispatchGroup.leave()
+                    })
                 }
-                completion(books, nil)
+
+                dispatchGroup.notify(queue: .main) {
+                    completion(books, nil)
+                }
+            }
+
+            if let error {
+                completion(nil, error)
+            }
+        }
+    }
+
+    func getImageByIBSN(ibsn: String, completion: @escaping (String?, Error?) -> Void) {
+        apiManager.request(urlString: Constants.booksImageURL + ibsn,
+                           method: .get,
+                           dataType: BookImageRequestResult.self,
+                           headers: nil,
+                           parameters: nil) { data, error in
+
+            if let data {
+                if let link = data.items?[0].volumeInfo.imageLinks.link {
+                    completion(link, nil)
+                }
             }
 
             if let error {
