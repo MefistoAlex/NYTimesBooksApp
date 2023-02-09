@@ -6,9 +6,13 @@
 //
 
 import Foundation
+
+// MARK: - Protocol
+
 protocol BooksAPIServiceProtocol {
-    func getBooksByCategoryName(categoryName: String ,completion: @escaping (_ books: [Book]?, _ error: Error?) -> Void)
+    func getBooksByCategoryName(categoryName: String, completion: @escaping (_ books: [Book]?, _ error: Error?) -> Void)
 }
+
 final class BooksAPIService: BooksAPIServiceProtocol {
     private let apiManager: APIManager
 
@@ -19,7 +23,7 @@ final class BooksAPIService: BooksAPIServiceProtocol {
     func getBooksByCategoryName(categoryName: String, completion: @escaping ([Book]?, Error?) -> Void) {
         var parameters = Constants.apiKey
         parameters["list"] = categoryName
-        
+
         apiManager.request(urlString: Constants.booksURL,
                            method: .get,
                            dataType: BookRequestResult.self,
@@ -28,8 +32,8 @@ final class BooksAPIService: BooksAPIServiceProtocol {
             var books: [Book]?
             if let data {
                 books = []
-                data.results.forEach {
-                    books?.append(Book(from: $0, categoryName: categoryName))
+                data.results.forEach { incomingBookData in
+                    books?.append(Book(from: incomingBookData, categoryEncodedName: categoryName))
                 }
                 completion(books, nil)
             }
