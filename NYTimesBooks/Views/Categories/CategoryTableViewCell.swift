@@ -28,8 +28,9 @@ class CategoryTableViewCell: UITableViewCell {
             categoryName.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             categoryName.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             categoryName.topAnchor.constraint(equalTo: topAnchor, constant: 5),
-
         ])
+        categoryName.numberOfLines = 0
+        categoryName.font = UIFont.preferredFont(forTextStyle: .title2)
     }
 
     private func configurePublicationDate() {
@@ -38,9 +39,11 @@ class CategoryTableViewCell: UITableViewCell {
         NSLayoutConstraint.activate([
             publicationDate.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             publicationDate.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            publicationDate.topAnchor.constraint(equalTo: categoryName.bottomAnchor, constant: 5),
+            publicationDate.topAnchor.constraint(equalTo: categoryName.bottomAnchor, constant: 15),
             publicationDate.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5),
         ])
+        publicationDate.textAlignment = .right
+        publicationDate.font = UIFont.preferredFont(forTextStyle: .callout)
     }
 
     func setCategory(_ category: Category) {
