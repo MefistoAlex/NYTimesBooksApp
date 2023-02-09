@@ -32,48 +32,11 @@ final class BooksAPIService: BooksAPIServiceProtocol {
 
             if let data {
                 books = []
-                let dispatchGroup = DispatchGroup()
-
                 for incomingBookData in data.results {
-                    dispatchGroup.enter()
-                    var book = Book(from: incomingBookData, categoryEncodedName: categoryName)
-                    self.apiManager.request(urlString: APIConstants.booksImageURL + book.isnb13,
-                                            method: .get,
-                                            dataType: BookImageRequestResult.self,
-                                            headers: nil,
-                                            parameters: nil) { data, _ in
-
-                        if let data {
-                            book.imageURL = data.items?[0].volumeInfo.imageLinks.link
-                            
-                        }
-                        books?.append(book)
-                        dispatchGroup.leave()
-                    }
+                    let book = Book(from: incomingBookData, categoryEncodedName: categoryName)
+                    books?.append(book)
                 }
-
-                dispatchGroup.notify(queue: .main) {
-                    completion(books, nil)
-                }
-            }
-
-            if let error {
-                completion(nil, error)
-            }
-        }
-    }
-
-    func getImageByIBSN(ibsn: String, completion: @escaping (String?, Error?) -> Void) {
-        apiManager.request(urlString: APIConstants.booksImageURL + ibsn,
-                           method: .get,
-                           dataType: BookImageRequestResult.self,
-                           headers: nil,
-                           parameters: nil) { data, error in
-
-            if let data {
-                if let link = data.items?[0].volumeInfo.imageLinks.link {
-                    completion(link, nil)
-                }
+                completion(books, nil)
             }
 
             if let error {

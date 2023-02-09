@@ -37,7 +37,7 @@ final class BooksRepository {
             if let books {
                 self?.createEntities(from: books, categoryEncodedName: categoryEncodedName)
                 if let fetchedBooks = self?.fetchBooks(by: categoryEncodedName) {
-                    self?.postBooks(entities: fetchedBooks, categoryEncodedName: categoryEncodedName)
+                    self?.getImages(booksEntities: fetchedBooks, categoryEncodedName: categoryEncodedName)
                 }
             }
         }
@@ -93,6 +93,24 @@ final class BooksRepository {
             errorSubject.onNext(error)
         }
         CoreDataStack.saveContext()
+    }
+
+    private func getImages(booksEntities: [BookEntity], categoryEncodedName: String) {
+        let group = DispatchGroup()
+        for entity in booksEntities {
+            if let ibsn = entity.isnb13 {
+                group.enter()
+                booksImageService.getImageByIBSN(ibsn: ibsn) { bookImage, _ in
+                    entity.imageURL = bookImage
+                    group.leave()
+                }
+            }
+        }
+
+        group.notify(queue: .main) { [weak self] in
+            self?.postBooks(entities: booksEntities, categoryEncodedName: categoryEncodedName)
+            CoreDataStack.saveContext()
+        }
     }
 
     private func getPredicate(by categoryEncodedName: String) -> NSPredicate {
