@@ -17,7 +17,8 @@ class CategoriesTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Categories"
+        let titleString = NSLocalizedString("TITLE_CATEGORIES", comment: "view controller title")
+        title = titleString
         tableViewConfigure()
         errorHandling()
         categoriesViewModel.getCategories()
