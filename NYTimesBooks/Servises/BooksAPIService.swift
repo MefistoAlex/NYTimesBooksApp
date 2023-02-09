@@ -34,17 +34,22 @@ final class BooksAPIService: BooksAPIServiceProtocol {
                 books = []
                 let dispatchGroup = DispatchGroup()
 
-                data.results.forEach { [weak self] incomingBookData in
+                for incomingBookData in data.results {
                     dispatchGroup.enter()
                     var book = Book(from: incomingBookData, categoryEncodedName: categoryName)
+                    self.apiManager.request(urlString: Constants.booksImageURL + book.isnb13,
+                                            method: .get,
+                                            dataType: BookImageRequestResult.self,
+                                            headers: nil,
+                                            parameters: nil) { data, _ in
 
-                    self?.getImageByIBSN(ibsn: book.isnb13, completion: { link, _ in
-                        if let link {
-                            book.imageURL = link
-                            books?.append(book)
+                        if let data {
+                            book.imageURL = data.items?[0].volumeInfo.imageLinks.link
+                            
                         }
+                        books?.append(book)
                         dispatchGroup.leave()
-                    })
+                    }
                 }
 
                 dispatchGroup.notify(queue: .main) {
