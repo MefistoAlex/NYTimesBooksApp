@@ -44,7 +44,7 @@ class BookToBuyViewController: UIViewController {
     }
     
     func setBook(_ book: Book) {
-        let url = URL(string: book.amazonUrl)
+        let url = URL(string: book.amazonURL)
         if let url {
             bookUrlRequest = URLRequest(url: url)
         }
