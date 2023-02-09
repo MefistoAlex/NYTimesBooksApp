@@ -5,7 +5,6 @@
         <attribute name="annotation" optional="YES" attributeType="String"/>
         <attribute name="author" optional="YES" attributeType="String"/>
         <attribute name="categoryEncodedName" optional="YES" attributeType="String"/>
-        <attribute name="image" optional="YES" attributeType="Binary"/>
         <attribute name="imageURL" optional="YES" attributeType="String"/>
         <attribute name="isnb13" optional="YES" attributeType="String"/>
         <attribute name="publisher" optional="YES" attributeType="String"/>
