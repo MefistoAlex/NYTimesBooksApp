@@ -79,7 +79,7 @@ final class CategoriesRepository {
         CoreDataStack.saveContext()
     }
 
-    func clearData() {
+    private func clearData() {
         let moc = CoreDataStack.persistentContainer.viewContext
         let request = CategoryEntity.fetchRequest()
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: request as! NSFetchRequest<NSFetchRequestResult>)
