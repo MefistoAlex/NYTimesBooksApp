@@ -16,6 +16,7 @@
 		B02734DF298FB98500BF07E4 /* CategoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02734DE298FB98500BF07E4 /* CategoriesViewModel.swift */; };
 		B02734E1298FC45200BF07E4 /* CategoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02734E0298FC45200BF07E4 /* CategoriesTableViewController.swift */; };
 		B02734E6298FCF9400BF07E4 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02734E5298FCF9400BF07E4 /* CategoryTableViewCell.swift */; };
+		B061189229955BA600AB8CA4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B061189429955BA600AB8CA4 /* Localizable.strings */; };
 		B073F96029924EBB00F4D533 /* BookToBuyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B073F95F29924EBB00F4D533 /* BookToBuyViewController.swift */; };
 		B0AC06182993817D00979746 /* BookImageAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AC06172993817D00979746 /* BookImageAPIService.swift */; };
 		B0AC061A2993838C00979746 /* BookImageRequestResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AC06192993838C00979746 /* BookImageRequestResult.swift */; };
@@ -48,6 +49,9 @@
 		B02734DE298FB98500BF07E4 /* CategoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewModel.swift; sourceTree = "<group>"; };
 		B02734E0298FC45200BF07E4 /* CategoriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesTableViewController.swift; sourceTree = "<group>"; };
 		B02734E5298FCF9400BF07E4 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
+		B061188F2995470400AB8CA4 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		B061189329955BA600AB8CA4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B061189529955BA900AB8CA4 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B073F95F29924EBB00F4D533 /* BookToBuyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookToBuyViewController.swift; sourceTree = "<group>"; };
 		B0AC06172993817D00979746 /* BookImageAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookImageAPIService.swift; sourceTree = "<group>"; };
 		B0AC06192993838C00979746 /* BookImageRequestResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookImageRequestResult.swift; sourceTree = "<group>"; };
@@ -115,6 +119,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		B061189629955BBE00AB8CA4 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				B061189429955BA600AB8CA4 /* Localizable.strings */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
 		B0C8DFE22991841D000BC306 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +177,7 @@
 				B0D0BA28298EC2F100B20EA6 /* Info.plist */,
 				B0C8DFE029917DF3000BC306 /* UIViewController+showErrorAlert.swift */,
 				B0AC061F299502A500979746 /* NYTimesBooks.xcdatamodeld */,
+				B061189629955BBE00AB8CA4 /* Localization */,
 			);
 			path = NYTimesBooks;
 			sourceTree = "<group>";
@@ -250,6 +263,7 @@
 			knownRegions = (
 				en,
 				Base,
+				uk,
 			);
 			mainGroup = B0D0BA0B298EC2EF00B20EA6;
 			packageReferences = (
@@ -272,6 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0D0BA27298EC2F100B20EA6 /* LaunchScreen.storyboard in Resources */,
+				B061189229955BA600AB8CA4 /* Localizable.strings in Resources */,
 				B0D0BA24298EC2F100B20EA6 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -314,10 +329,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		B061189429955BA600AB8CA4 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B061189329955BA600AB8CA4 /* en */,
+				B061189529955BA900AB8CA4 /* uk */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		B0D0BA25298EC2F100B20EA6 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				B0D0BA26298EC2F100B20EA6 /* Base */,
+				B061188F2995470400AB8CA4 /* uk */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -329,6 +354,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -389,6 +415,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
