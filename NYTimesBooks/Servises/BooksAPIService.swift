@@ -20,10 +20,10 @@ final class BooksAPIService: BooksAPIServiceProtocol {
     }
 
     func getBooksByCategoryName(categoryName: String, completion: @escaping ([Book]?, Error?) -> Void) {
-        var parameters = Constants.apiKey
+        var parameters = APIConstants.apiKey
         parameters["list"] = categoryName
 
-        apiManager.request(urlString: Constants.booksURL,
+        apiManager.request(urlString: APIConstants.booksURL,
                            method: .get,
                            dataType: BookRequestResult.self,
                            headers: nil,
@@ -37,7 +37,7 @@ final class BooksAPIService: BooksAPIServiceProtocol {
                 for incomingBookData in data.results {
                     dispatchGroup.enter()
                     var book = Book(from: incomingBookData, categoryEncodedName: categoryName)
-                    self.apiManager.request(urlString: Constants.booksImageURL + book.isnb13,
+                    self.apiManager.request(urlString: APIConstants.booksImageURL + book.isnb13,
                                             method: .get,
                                             dataType: BookImageRequestResult.self,
                                             headers: nil,
@@ -64,7 +64,7 @@ final class BooksAPIService: BooksAPIServiceProtocol {
     }
 
     func getImageByIBSN(ibsn: String, completion: @escaping (String?, Error?) -> Void) {
-        apiManager.request(urlString: Constants.booksImageURL + ibsn,
+        apiManager.request(urlString: APIConstants.booksImageURL + ibsn,
                            method: .get,
                            dataType: BookImageRequestResult.self,
                            headers: nil,

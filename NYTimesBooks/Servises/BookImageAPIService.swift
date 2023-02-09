@@ -18,7 +18,7 @@ final class BooksImageAPIService: BooksImageAPIServiceProtocol {
     }
     
     func getImageByIBSN(ibsn: String, completion: @escaping (String?, Error?) -> Void) {
-        apiManager.request(urlString: (Constants.booksImageURL + ibsn),
+        apiManager.request(urlString: (APIConstants.booksImageURL + ibsn),
                            method: .get,
                            dataType: BookImageRequestResult.self,
                            headers: nil,

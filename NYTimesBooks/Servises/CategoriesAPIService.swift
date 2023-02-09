@@ -19,11 +19,11 @@ final class CategoriesAPIService: CategoriesAPIServiceProtocol {
     }
 
     func getCategories(completion: @escaping ([Category]?, Error?) -> Void) {
-        apiManager.request(urlString: Constants.categoriesURL,
+        apiManager.request(urlString: APIConstants.categoriesURL,
                            method: .get,
                            dataType: CategoryRequestResult.self,
                            headers: nil,
-                           parameters: Constants.apiKey) { data, error in
+                           parameters: APIConstants.apiKey) { data, error in
             var categories: [Category]?
             if let data {
                 categories = []

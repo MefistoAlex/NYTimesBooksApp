@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		B02734CC298F93CC00BF07E4 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02734CB298F93CB00BF07E4 /* Book.swift */; };
 		B02734D3298F980C00BF07E4 /* CategoriesAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02734D2298F980C00BF07E4 /* CategoriesAPIService.swift */; };
-		B02734D5298F99C200BF07E4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02734D4298F99C200BF07E4 /* Constants.swift */; };
+		B02734D5298F99C200BF07E4 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02734D4298F99C200BF07E4 /* APIConstants.swift */; };
 		B02734D7298FAD3600BF07E4 /* BooksAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02734D6298FAD3600BF07E4 /* BooksAPIService.swift */; };
 		B02734DA298FB87400BF07E4 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = B02734D9298FB87400BF07E4 /* RxCocoa */; };
 		B02734DC298FB87400BF07E4 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B02734DB298FB87400BF07E4 /* RxSwift */; };
@@ -44,7 +44,7 @@
 /* Begin PBXFileReference section */
 		B02734CB298F93CB00BF07E4 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		B02734D2298F980C00BF07E4 /* CategoriesAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesAPIService.swift; sourceTree = "<group>"; };
-		B02734D4298F99C200BF07E4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B02734D4298F99C200BF07E4 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		B02734D6298FAD3600BF07E4 /* BooksAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksAPIService.swift; sourceTree = "<group>"; };
 		B02734DE298FB98500BF07E4 /* CategoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewModel.swift; sourceTree = "<group>"; };
 		B02734E0298FC45200BF07E4 /* CategoriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesTableViewController.swift; sourceTree = "<group>"; };
@@ -166,7 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				B061189629955BBE00AB8CA4 /* Localization */,
-				B02734D4298F99C200BF07E4 /* Constants.swift */,
+				B02734D4298F99C200BF07E4 /* APIConstants.swift */,
 				B0D0BA17298EC2EF00B20EA6 /* AppDelegate.swift */,
 				B0D0BA19298EC2EF00B20EA6 /* SceneDelegate.swift */,
 				B0D0BA39298ECE6900B20EA6 /* Servises */,
@@ -313,7 +313,7 @@
 				B02734DF298FB98500BF07E4 /* CategoriesViewModel.swift in Sources */,
 				B02734D7298FAD3600BF07E4 /* BooksAPIService.swift in Sources */,
 				B0AC06182993817D00979746 /* BookImageAPIService.swift in Sources */,
-				B02734D5298F99C200BF07E4 /* Constants.swift in Sources */,
+				B02734D5298F99C200BF07E4 /* APIConstants.swift in Sources */,
 				B0C8DFEC29919493000BC306 /* BooksViewModel.swift in Sources */,
 				B0D0BA3E298EDAC900B20EA6 /* Category.swift in Sources */,
 				B0D0BA18298EC2EF00B20EA6 /* AppDelegate.swift in Sources */,
