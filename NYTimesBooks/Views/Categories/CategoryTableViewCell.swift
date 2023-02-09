@@ -13,9 +13,6 @@ class CategoryTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        NSLayoutConstraint.activate([
-            heightAnchor.constraint(equalToConstant: 50),
-        ])
         configureCategoryName()
         configurePublicationDate()
     }
@@ -28,7 +25,6 @@ class CategoryTableViewCell: UITableViewCell {
         addSubview(categoryName)
         categoryName.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            categoryName.heightAnchor.constraint(equalToConstant: 20),
             categoryName.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             categoryName.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             categoryName.topAnchor.constraint(equalTo: topAnchor, constant: 5),
@@ -40,10 +36,10 @@ class CategoryTableViewCell: UITableViewCell {
         addSubview(publicationDate)
         publicationDate.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            publicationDate.heightAnchor.constraint(equalToConstant: 20),
             publicationDate.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             publicationDate.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             publicationDate.topAnchor.constraint(equalTo: categoryName.bottomAnchor, constant: 5),
+            publicationDate.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5),
         ])
     }
 
