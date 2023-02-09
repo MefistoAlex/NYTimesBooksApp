@@ -13,7 +13,6 @@ final class BooksRepository {
 
     let booksService: BooksAPIServiceProtocol
     let booksImageService: BooksImageAPIServiceProtocol
-    
 
     var booksError: Observable<Error> { errorSubject }
     private let errorSubject = PublishSubject<Error>()
@@ -50,6 +49,7 @@ final class BooksRepository {
 
         request.predicate = getPredicate(by: categoryEncodedName)
 
+        request.sortDescriptors = [NSSortDescriptor(key: "rank", ascending: true)]
         let requestResult = try? managedObjectContext.fetch(request)
         return requestResult ?? []
     }
@@ -77,7 +77,7 @@ final class BooksRepository {
             bookEntity.amazonURL = book.amazonURL
             bookEntity.rank = book.rank
             bookEntity.categoryEncodedName = categoryEncodedName
-           
+            bookEntity.imageURL = book.imageURL
         }
         CoreDataStack.saveContext()
     }
