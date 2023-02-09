@@ -138,6 +138,16 @@
 			path = Constants;
 			sourceTree = "<group>";
 		};
+		B061189A2995720C00AB8CA4 /* API Services */ = {
+			isa = PBXGroup;
+			children = (
+				B02734D2298F980C00BF07E4 /* CategoriesAPIService.swift */,
+				B02734D6298FAD3600BF07E4 /* BooksAPIService.swift */,
+				B0AC06172993817D00979746 /* BookImageAPIService.swift */,
+			);
+			path = "API Services";
+			sourceTree = "<group>";
+		};
 		B0C8DFE22991841D000BC306 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
@@ -207,9 +217,7 @@
 			children = (
 				B0D0BA2E298EC5E200B20EA6 /* CoreDataStack.swift */,
 				B0D0BA38298ECD5C00B20EA6 /* API Manager */,
-				B02734D2298F980C00BF07E4 /* CategoriesAPIService.swift */,
-				B02734D6298FAD3600BF07E4 /* BooksAPIService.swift */,
-				B0AC06172993817D00979746 /* BookImageAPIService.swift */,
+				B061189A2995720C00AB8CA4 /* API Services */,
 				B0AC061B2993935F00979746 /* CategoriesRepository.swift */,
 				B0AC061D2993F9A800979746 /* BooksRepository.swift */,
 			);
