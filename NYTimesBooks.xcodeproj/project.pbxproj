@@ -190,7 +190,7 @@
 				B06118992995717C00AB8CA4 /* Constants */,
 				B0D0BA17298EC2EF00B20EA6 /* AppDelegate.swift */,
 				B0D0BA19298EC2EF00B20EA6 /* SceneDelegate.swift */,
-				B0D0BA39298ECE6900B20EA6 /* Servises */,
+				B0D0BA39298ECE6900B20EA6 /* Services */,
 				B0D0BA3C298EDA8F00B20EA6 /* Models */,
 				B02734E2298FC46400BF07E4 /* Views */,
 				B02734DD298FB96A00BF07E4 /* ViewModels */,
@@ -212,7 +212,7 @@
 			path = "API Manager";
 			sourceTree = "<group>";
 		};
-		B0D0BA39298ECE6900B20EA6 /* Servises */ = {
+		B0D0BA39298ECE6900B20EA6 /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				B0D0BA2E298EC5E200B20EA6 /* CoreDataStack.swift */,
@@ -221,7 +221,7 @@
 				B0AC061B2993935F00979746 /* CategoriesRepository.swift */,
 				B0AC061D2993F9A800979746 /* BooksRepository.swift */,
 			);
-			path = Servises;
+			path = Services;
 			sourceTree = "<group>";
 		};
 		B0D0BA3C298EDA8F00B20EA6 /* Models */ = {
