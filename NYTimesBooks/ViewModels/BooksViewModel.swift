@@ -20,16 +20,28 @@ class BooksViewModel {
 
     var books: Observable<[Book]> { booksSubject }
     private let booksSubject = BehaviorSubject(value: [Book]())
+    
+    var isLoading: Observable<Bool> { isLoadingSubject }
+    private let isLoadingSubject = PublishSubject<Bool>()
+
 
     init() {
         booksService = BooksAPIService()
         
         booksRopository.books.bind {[weak self] books in
-            self?.booksSubject.onNext(books)
+            if books.count > 0{
+                self?.booksSubject.onNext(books)
+            } else {
+                
+            }
         }.disposed(by: disposeBag)
         
         booksRopository.booksError.bind {[weak self] error in
             self?.errorSubject.onNext(error)
+        }.disposed(by: disposeBag)
+        
+        booksRopository.isLoading.bind {[weak self] isLoading in
+            self?.isLoadingSubject.onNext(isLoading)
         }.disposed(by: disposeBag)
     }
 
