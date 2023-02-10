@@ -76,6 +76,7 @@ class CategoriesTableViewController: UITableViewController {
         categoriesViewModel.categoriesError.subscribe { [weak self] error in
             self?.showErrorAlert(with: error)
             self?.tableView.refreshControl?.endRefreshing()
+            self?.refreshControl?.endRefreshing()
         }.disposed(by: disposeBag)
     }
 

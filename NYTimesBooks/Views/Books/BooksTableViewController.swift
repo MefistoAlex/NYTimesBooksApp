@@ -103,6 +103,7 @@ class BooksTableViewController: UITableViewController {
         booksViewModel.booksError.subscribe { [weak self] error in
             self?.showErrorAlert(with: error)
             self?.tableView.refreshControl?.endRefreshing()
+            self?.refreshControl?.endRefreshing()
         }.disposed(by: disposeBag)
     }
 }
