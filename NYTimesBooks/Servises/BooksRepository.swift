@@ -17,6 +17,9 @@ final class BooksRepository {
     var booksError: Observable<Error> { errorSubject }
     private let errorSubject = PublishSubject<Error>()
 
+    var isLoading: Observable<Bool> { isLoadingSubject }
+    private let isLoadingSubject = PublishSubject<Bool>()
+
     var books: Observable<[Book]> { bookssSubject }
     private let bookssSubject = BehaviorSubject(value: [Book]())
 
@@ -29,6 +32,8 @@ final class BooksRepository {
         let fetchedBooks = fetchBooks(by: categoryEncodedName)
         if fetchedBooks.count > 0 {
             postBooks(entities: fetchedBooks, categoryEncodedName: categoryEncodedName)
+        } else {
+            isLoadingSubject.onNext(true)
         }
         booksService.getBooksByCategoryName(categoryName: categoryEncodedName) { [weak self] books, error in
             if let error {
@@ -38,12 +43,15 @@ final class BooksRepository {
                 self?.clearBooksByCategoryName(categoryEncodedName: categoryEncodedName)
                 self?.createEntities(from: books, categoryEncodedName: categoryEncodedName)
                 if let fetchedBooks = self?.fetchBooks(by: categoryEncodedName) {
+                    self?.isLoadingSubject.onNext(false)
                     self?.postBooks(entities: fetchedBooks, categoryEncodedName: categoryEncodedName)
                     self?.getImages(booksEntities: fetchedBooks, categoryEncodedName: categoryEncodedName)
                 }
             }
         }
     }
+
+    // MARK: - Privates
 
     private func fetchBooks(by categoryEncodedName: String) -> [BookEntity] {
         let managedObjectContext = CoreDataStack.persistentContainer.viewContext
@@ -113,8 +121,8 @@ final class BooksRepository {
             CoreDataStack.saveContext()
         }
     }
-}
 
-private func getPredicate(by categoryEncodedName: String) -> NSPredicate {
-    return NSPredicate(format: "categoryEncodedName = %@", categoryEncodedName)
+    private func getPredicate(by categoryEncodedName: String) -> NSPredicate {
+        return NSPredicate(format: "categoryEncodedName = %@", categoryEncodedName)
+    }
 }
