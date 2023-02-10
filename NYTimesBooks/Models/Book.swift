@@ -26,7 +26,7 @@ struct Book {
         amazonURL = incomingBook.amazonUrl
         rank = incomingBook.rank
         self.categoryEncodedName = categoryEncodedName
-        imageURL = nil
+        imageURL =  "https://storage.googleapis.com/du-prd/books/images/\(isnb13).jpg"
     }
 
     init(title: String, annotation: String, author: String, publisher: String, isnb13: String, amazonURL: String, rank: Int16, categoryEncodedName: String, imageURL: String) {

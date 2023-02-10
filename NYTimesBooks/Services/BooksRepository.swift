@@ -40,12 +40,14 @@ final class BooksRepository {
                 self?.errorSubject.onNext(error)
             }
             if let books {
-                self?.clearBooksByCategoryName(categoryEncodedName: categoryEncodedName)
-                self?.createEntities(from: books, categoryEncodedName: categoryEncodedName)
+                self?.bookssSubject.onNext(books)
                 if let fetchedBooks = self?.fetchBooks(by: categoryEncodedName) {
-                    self?.isLoadingSubject.onNext(false)
-                    self?.postBooks(entities: fetchedBooks, categoryEncodedName: categoryEncodedName)
-                    self?.getImages(booksEntities: fetchedBooks, categoryEncodedName: categoryEncodedName)
+                    if fetchedBooks.count > 0 {
+                        self?.updateEntities(books: books, entities: fetchedBooks, categoryEncodedName: categoryEncodedName)
+                    } else {
+                        self?.createEntities(from: books, categoryEncodedName: categoryEncodedName)
+                        self?.postBooks(entities: fetchedBooks, categoryEncodedName: categoryEncodedName)
+                    }
                 }
             }
         }
@@ -64,6 +66,28 @@ final class BooksRepository {
         return requestResult ?? []
     }
 
+    private func updateEntities(books: [Book], entities: [BookEntity], categoryEncodedName: String) {
+        if books.count != entities.count {
+            clearBooksByCategoryName(categoryEncodedName: categoryEncodedName)
+            createEntities(from: books, categoryEncodedName: categoryEncodedName)
+        } else {
+            for index in 0 ..< books.count {
+                let entity = entities[index]
+                let book = books[index]
+                entity.title = book.title
+                entity.author = book.author
+                entity.annotation = book.annotation
+                entity.amazonURL = book.amazonURL
+                entity.isnb13 = book.isnb13
+                entity.rank = book.rank
+                entity.publisher = book.publisher
+                entity.imageURL = book.imageURL
+            }
+            CoreDataStack.saveContext()
+            postBooks(entities: entities, categoryEncodedName: categoryEncodedName)
+        }
+    }
+
     private func postBooks(entities: [BookEntity], categoryEncodedName: String) {
         var models = [Book]()
         entities.forEach {
@@ -72,6 +96,7 @@ final class BooksRepository {
             }
         }
         bookssSubject.onNext(models)
+        isLoadingSubject.onNext(false)
     }
 
     private func createEntities(from books: [Book], categoryEncodedName: String) {
@@ -102,24 +127,6 @@ final class BooksRepository {
             errorSubject.onNext(error)
         }
         CoreDataStack.saveContext()
-    }
-
-    private func getImages(booksEntities: [BookEntity], categoryEncodedName: String) {
-        let group = DispatchGroup()
-        for index in 0 ..< booksEntities.count {
-            if let ibsn = booksEntities[index].isnb13 {
-                group.enter()
-                booksImageService.getImageByIBSN(ibsn: ibsn) { bookImage, _ in
-                    booksEntities[index].imageURL = bookImage
-                    group.leave()
-                }
-            }
-        }
-
-        group.notify(queue: .main) {
-            self.postBooks(entities: booksEntities, categoryEncodedName: categoryEncodedName)
-            CoreDataStack.saveContext()
-        }
     }
 
     private func getPredicate(by categoryEncodedName: String) -> NSPredicate {
