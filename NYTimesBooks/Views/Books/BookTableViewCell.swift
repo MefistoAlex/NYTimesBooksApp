@@ -33,6 +33,7 @@ class BookTableViewCell: UITableViewCell {
     // MARK: - Cell Confirure
 
     private func bookImageConfigure() {
+        self.tintColor = .gray
         addSubview(bookImage)
         bookImage.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -113,6 +114,7 @@ class BookTableViewCell: UITableViewCell {
 
     func setBook(_ book: Book) {
         let placeholder = UIImage(systemName: "book")
+        
         if let imageURL = book.imageURL {
             let url = URL(string: imageURL)
             bookImage.kf.setImage(with: url, placeholder: placeholder)
