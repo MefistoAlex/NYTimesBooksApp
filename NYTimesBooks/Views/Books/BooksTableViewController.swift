@@ -15,6 +15,14 @@ class BooksTableViewController: UITableViewController {
     private var category: Category?
     let disposeBag = DisposeBag()
     let booksViewModel = BooksViewModel()
+    let loadingIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(style: .large)
+        indicator.backgroundColor = .systemBackground
+        indicator.isHidden = true
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+
+        return indicator
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +34,8 @@ class BooksTableViewController: UITableViewController {
         self.category = category
         tableViewConfigure()
         errorHandling()
+        refreshControllConfigure()
+        loadingIndicatorConfigure()
         booksViewModel.getBooks(by: category)
     }
 
@@ -33,11 +43,6 @@ class BooksTableViewController: UITableViewController {
 
     func tableViewConfigure() {
         tableView.dataSource = nil
-
-        let refreshControl = UIRefreshControl()
-        refreshControl.accessibilityViewIsModal = true
-        refreshControl.addTarget(self, action: #selector(refreshTableData), for: .valueChanged)
-        tableView.refreshControl = refreshControl
 
         tableView.register(BookTableViewCell.self, forCellReuseIdentifier: String(describing: BookTableViewCell.self))
 
@@ -49,7 +54,7 @@ class BooksTableViewController: UITableViewController {
                     cell.setBook(book)
             }.disposed(by: disposeBag)
 
-        tableView.rx.modelSelected(Book.self).asDriver().drive {[weak self] book in
+        tableView.rx.modelSelected(Book.self).asDriver().drive { [weak self] book in
             let bookToBuyController = BookToBuyViewController()
             bookToBuyController.setBook(book)
             self?.navigationController?.pushViewController(bookToBuyController, animated: true)
@@ -64,11 +69,32 @@ class BooksTableViewController: UITableViewController {
         }.disposed(by: disposeBag)
     }
 
-    @objc func refreshTableData() {
-        tableView.refreshControl?.beginRefreshing()
+    func refreshControllConfigure() {
+        refreshControl = UIRefreshControl()
+        refreshControl?.addTarget(self, action: #selector(refresh), for: .allEvents)
+    }
+
+    @objc func refresh() {
         if let category {
             booksViewModel.getBooks(by: category)
         }
+    }
+
+    func loadingIndicatorConfigure() {
+        view.addSubview(loadingIndicator)
+
+        NSLayoutConstraint.activate([
+            loadingIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+        ])
+
+        booksViewModel.isLoading.bind { [weak self] isLoading in
+            if isLoading {
+                self?.loadingIndicator.startAnimating()
+            } else {
+                self?.loadingIndicator.stopAnimating()
+            }
+            self?.loadingIndicator.isHidden = !isLoading
+        }.disposed(by: disposeBag)
     }
 
     // MARK: - Error alert
