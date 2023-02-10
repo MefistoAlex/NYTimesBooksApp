@@ -26,6 +26,8 @@ class BooksTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let titleString = NSLocalizedString("TITLE_BOOKS", comment: "view controller title")
+        title = titleString
     }
 
     // MARK: - Set Category
