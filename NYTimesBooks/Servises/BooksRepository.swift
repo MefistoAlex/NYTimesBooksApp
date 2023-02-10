@@ -35,8 +35,10 @@ final class BooksRepository {
                 self?.errorSubject.onNext(error)
             }
             if let books {
+                self?.clearBooksByCategoryName(categoryEncodedName: categoryEncodedName)
                 self?.createEntities(from: books, categoryEncodedName: categoryEncodedName)
                 if let fetchedBooks = self?.fetchBooks(by: categoryEncodedName) {
+                    self?.postBooks(entities: fetchedBooks, categoryEncodedName: categoryEncodedName)
                     self?.getImages(booksEntities: fetchedBooks, categoryEncodedName: categoryEncodedName)
                 }
             }
@@ -65,7 +67,6 @@ final class BooksRepository {
     }
 
     private func createEntities(from books: [Book], categoryEncodedName: String) {
-        clearBooksByCategoryName(categoryEncodedName: categoryEncodedName)
         let managedObjectContext = CoreDataStack.persistentContainer.viewContext
         for book in books {
             let bookEntity = BookEntity(context: managedObjectContext)
@@ -97,23 +98,23 @@ final class BooksRepository {
 
     private func getImages(booksEntities: [BookEntity], categoryEncodedName: String) {
         let group = DispatchGroup()
-        for entity in booksEntities {
-            if let ibsn = entity.isnb13 {
+        for index in 0 ..< booksEntities.count {
+            if let ibsn = booksEntities[index].isnb13 {
                 group.enter()
                 booksImageService.getImageByIBSN(ibsn: ibsn) { bookImage, _ in
-                    entity.imageURL = bookImage
+                    booksEntities[index].imageURL = bookImage
                     group.leave()
                 }
             }
         }
 
-        group.notify(queue: .main) { [weak self] in
-            self?.postBooks(entities: booksEntities, categoryEncodedName: categoryEncodedName)
+        group.notify(queue: .main) {
+            self.postBooks(entities: booksEntities, categoryEncodedName: categoryEncodedName)
             CoreDataStack.saveContext()
         }
     }
+}
 
-    private func getPredicate(by categoryEncodedName: String) -> NSPredicate {
-        return NSPredicate(format: "categoryEncodedName = %@", categoryEncodedName)
-    }
+private func getPredicate(by categoryEncodedName: String) -> NSPredicate {
+    return NSPredicate(format: "categoryEncodedName = %@", categoryEncodedName)
 }
