@@ -11,6 +11,7 @@ enum HttpMethod: String {
 }
 
 protocol APIManager {
+    // swiftlint:disable function_parameter_count
     func request<T>(urlString: String,
                     method: HttpMethod,
                     dataType: T.Type,

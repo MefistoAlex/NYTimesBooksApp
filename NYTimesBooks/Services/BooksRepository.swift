@@ -43,7 +43,10 @@ final class BooksRepository {
                 self?.bookssSubject.onNext(books)
                 if let fetchedBooks = self?.fetchBooks(by: categoryEncodedName) {
                     if fetchedBooks.count > 0 {
-                        self?.updateEntities(books: books, entities: fetchedBooks, categoryEncodedName: categoryEncodedName)
+                        self?.updateEntities(
+                            books: books,
+                            entities: fetchedBooks,
+                            categoryEncodedName: categoryEncodedName)
                     } else {
                         self?.createEntities(from: books, categoryEncodedName: categoryEncodedName)
                         self?.postBooks(entities: fetchedBooks, categoryEncodedName: categoryEncodedName)
@@ -118,9 +121,10 @@ final class BooksRepository {
 
     func clearBooksByCategoryName(categoryEncodedName: String) {
         let moc = CoreDataStack.persistentContainer.viewContext
-        let request = BookEntity.fetchRequest()
-        request.predicate = getPredicate(by: categoryEncodedName)
-        let deleteRequest = NSBatchDeleteRequest(fetchRequest: request as! NSFetchRequest<NSFetchRequestResult>)
+        let request = BookEntity.fetchRequest() as? NSFetchRequest<NSFetchRequestResult>
+        request?.predicate = getPredicate(by: categoryEncodedName)
+        guard let request else { return }
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: request)
         do {
             try moc.execute(deleteRequest)
         } catch {

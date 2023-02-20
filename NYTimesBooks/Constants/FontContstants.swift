@@ -12,5 +12,5 @@ struct FontContstants {
     static let bookAuthor = "Avenir-Heavy"
     static let bookPublisher = "Avenir-Heavy"
     static let bookRank = "Avenir-Heavy"
-    
+
 }

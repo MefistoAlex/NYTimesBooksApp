@@ -11,7 +11,7 @@ struct Category: Hashable {
     let nameEncoded: String
     let newestPublishedDate: String
 
-    init(from incomingCategory: CategoryRequestResult.CategoryIncoming) {
+    init(from incomingCategory: CategoryIncoming) {
         name = incomingCategory.name
         nameEncoded = incomingCategory.nameEncoded
         newestPublishedDate = incomingCategory.newestPublishedDate

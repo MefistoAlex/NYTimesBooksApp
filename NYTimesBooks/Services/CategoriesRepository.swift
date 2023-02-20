@@ -30,7 +30,7 @@ final class CategoriesRepository {
             postCategoties(entities: fetchedCategories)
         }
        refreshCategories()
-        
+
     }
 
     // MARK: - Privates
@@ -81,8 +81,9 @@ final class CategoriesRepository {
 
     private func clearData() {
         let moc = CoreDataStack.persistentContainer.viewContext
-        let request = CategoryEntity.fetchRequest()
-        let deleteRequest = NSBatchDeleteRequest(fetchRequest: request as! NSFetchRequest<NSFetchRequestResult>)
+        let request = CategoryEntity.fetchRequest() as? NSFetchRequest<NSFetchRequestResult>
+        guard let request else { return }
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: request )
         do {
             try moc.execute(deleteRequest)
         } catch {

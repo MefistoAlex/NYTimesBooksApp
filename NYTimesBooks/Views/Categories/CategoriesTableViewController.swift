@@ -24,21 +24,19 @@ class CategoriesTableViewController: UITableViewController {
         categoriesViewModel.getCategories()
     }
 
-    
-    //MARK: - TableView
+    // MARK: - TableView
+
     func tableViewConfigure() {
         tableView.dataSource = nil
-        
-        
+
         let refreshControl = UIRefreshControl()
         refreshControl.accessibilityViewIsModal = true
         refreshControl.addTarget(self, action: #selector(refreshTableData), for: .valueChanged)
         tableView.refreshControl = refreshControl
-        
-        
-        tableView.register(CategoryTableViewCell.self, forCellReuseIdentifier: String(describing: CategoryTableViewCell.self))
-        
-        
+
+        tableView.register(CategoryTableViewCell.self,
+                           forCellReuseIdentifier: String(describing: CategoryTableViewCell.self))
+
         categoriesViewModel.categories.asDriver(onErrorJustReturn: [Category]())
             .drive(tableView.rx.items(
                 cellIdentifier: String(describing: CategoryTableViewCell.self),
@@ -47,31 +45,28 @@ class CategoriesTableViewController: UITableViewController {
                     cell.setCategory(category)
             }.disposed(by: disposeBag)
 
-        
-        tableView.rx.modelSelected(Category.self).asDriver().drive {[weak self] category in
+        tableView.rx.modelSelected(Category.self).asDriver().drive { [weak self] category in
             let bookViewController = BooksTableViewController()
             bookViewController.setCategory(category)
             self?.navigationController?.pushViewController(bookViewController, animated: true)
         }.disposed(by: disposeBag)
-        
 
         tableView.rx.itemSelected.asDriver().drive { [weak self] indexPath in
             self?.tableView.deselectRow(at: indexPath, animated: true)
         }.disposed(by: disposeBag)
 
-        
         categoriesViewModel.categories.subscribe { [weak self] _ in
             self?.tableView.refreshControl?.endRefreshing()
         }.disposed(by: disposeBag)
     }
 
-    
     @objc func refreshTableData() {
         tableView.refreshControl?.beginRefreshing()
         categoriesViewModel.getCategories()
     }
-    
-    //MARK: - Error alert
+
+    // MARK: - Error alert
+
     func errorHandling() {
         categoriesViewModel.categoriesError.subscribe { [weak self] error in
             self?.showErrorAlert(with: error)
@@ -79,6 +74,4 @@ class CategoriesTableViewController: UITableViewController {
             self?.refreshControl?.endRefreshing()
         }.disposed(by: disposeBag)
     }
-
-    
 }

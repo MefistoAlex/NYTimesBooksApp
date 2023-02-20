@@ -8,6 +8,7 @@
 import Alamofire
 import Foundation
 final class AlamofireAPIManager: APIManager {
+    // swiftlint:disable function_parameter_count
     func request<T>(urlString: String,
                     method: HttpMethod,
                     dataType: T.Type,

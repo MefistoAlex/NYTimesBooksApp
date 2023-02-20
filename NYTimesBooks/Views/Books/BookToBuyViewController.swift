@@ -34,15 +34,15 @@ class BookToBuyViewController: UIViewController {
             webView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             webView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             webView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            webView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            webView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
         ]
         )
     }
-    
+
     private func showAllert() {
 
     }
-    
+
     func setBook(_ book: Book) {
         let url = URL(string: book.amazonURL)
         if let url {
