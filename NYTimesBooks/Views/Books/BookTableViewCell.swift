@@ -41,7 +41,7 @@ class BookTableViewCell: UITableViewCell {
             bookImage.widthAnchor.constraint(equalToConstant: 75),
             bookImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             bookImage.topAnchor.constraint(equalTo: topAnchor, constant: 5),
-            bookImage.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor, constant: -5),
+            bookImage.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor, constant: -5)
         ])
 
         bookImage.contentMode = .scaleAspectFit
@@ -53,7 +53,7 @@ class BookTableViewCell: UITableViewCell {
         NSLayoutConstraint.activate([
             titleLabel.leadingAnchor.constraint(equalTo: bookImage.trailingAnchor, constant: 20),
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 5),
+            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 5)
         ])
 
         titleLabel.numberOfLines = 0
@@ -66,7 +66,7 @@ class BookTableViewCell: UITableViewCell {
         NSLayoutConstraint.activate([
             annotationLabel.leadingAnchor.constraint(equalTo: bookImage.trailingAnchor, constant: 20),
             annotationLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            annotationLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
+            annotationLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10)
         ])
 
         annotationLabel.numberOfLines = 0
@@ -80,7 +80,7 @@ class BookTableViewCell: UITableViewCell {
             authorLabel.heightAnchor.constraint(equalToConstant: 20),
             authorLabel.leadingAnchor.constraint(equalTo: bookImage.trailingAnchor, constant: 20),
             authorLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            authorLabel.topAnchor.constraint(equalTo: annotationLabel.bottomAnchor, constant: 10),
+            authorLabel.topAnchor.constraint(equalTo: annotationLabel.bottomAnchor, constant: 10)
         ])
         authorLabel.font = UIFont(name: FontContstants.bookAuthor, size: 15)
     }
@@ -92,7 +92,7 @@ class BookTableViewCell: UITableViewCell {
             publisherLabel.heightAnchor.constraint(equalToConstant: 20),
             publisherLabel.leadingAnchor.constraint(equalTo: bookImage.trailingAnchor, constant: 20),
             publisherLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            publisherLabel.topAnchor.constraint(equalTo: authorLabel.bottomAnchor, constant: 10),
+            publisherLabel.topAnchor.constraint(equalTo: authorLabel.bottomAnchor, constant: 10)
         ])
         publisherLabel.font = UIFont(name: FontContstants.bookPublisher, size: 15)
     }
@@ -105,7 +105,7 @@ class BookTableViewCell: UITableViewCell {
             rankLabel.leadingAnchor.constraint(equalTo: bookImage.trailingAnchor, constant: 20),
             rankLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             rankLabel.topAnchor.constraint(equalTo: publisherLabel.bottomAnchor, constant: 10),
-            rankLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5),
+            rankLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5)
         ])
         rankLabel.font = UIFont(name: FontContstants.bookRank, size: 15)
     }
@@ -114,7 +114,7 @@ class BookTableViewCell: UITableViewCell {
 
     func setBook(_ book: Book) {
         let placeholder = UIImage(systemName: "book")
-        
+
         if let imageURL = book.imageURL {
             let url = URL(string: imageURL)
             bookImage.kf.setImage(with: url, placeholder: placeholder)

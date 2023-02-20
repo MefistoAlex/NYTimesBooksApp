@@ -86,7 +86,7 @@ class BooksTableViewController: UITableViewController {
         view.addSubview(loadingIndicator)
 
         NSLayoutConstraint.activate([
-            loadingIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            loadingIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
 
         booksViewModel.isLoading.bind { [weak self] isLoading in

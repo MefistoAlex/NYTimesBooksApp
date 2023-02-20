@@ -6,7 +6,7 @@
 //
 import Foundation
 import CoreData
-final class CoreDataStack{
+final class CoreDataStack {
 
     // MARK: - Core Data stack
 
@@ -35,4 +35,3 @@ final class CoreDataStack{
         }
     }
 }
-
